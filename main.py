@@ -50,8 +50,6 @@ def battle_all(team_list) -> int:
     return pnt_cnts
 
 def new_battle_all(team_list):
-    
-
     while len(team_list) > 1:
         N = len(team_list)
         print(f"There are {N} teams")
@@ -70,17 +68,34 @@ def new_battle_all(team_list):
         team_list.pop(min_idx)
     return team_list
 
+
+
+
+# ______ THis is the process I used to select the team at the bottom ________
+
 # pnt_cnts = battle_all(team_list)
+# sorted_teams_1 = [team for _, team in sorted(zip(pnt_cnts, team_list), reverse=True)]
 
-# best_team_idx = pnt_cnts.index(max(pnt_cnts))
+# pnt_cnts = battle_all(sorted_teams_1[:2000])
+# sorted_teams_2 = [team for _, team in sorted(zip(pnt_cnts, sorted_teams_1[:2000]), reverse=True)]
+
+# pnt_cnts = battle_all(sorted_teams_2[:750])
+# best_idx = pnt_cnts.index(max(pnt_cnts))
+
+# best_team = sorted_teams_2[best_idx]
+
+# print(best_team)
+
+#____________________________________________________________________________
+# team_list.append([0, 2, 11, 3, 4, 23, 5, 6, 37, 9]) team I submitted
 
 
-# print(pnt_cnts[best_team_idx])
+# _____Running first 1000 then running new kind of battle__________________
+# pnt_cnts = battle_all(team_list)
+# sorted_teams_1 = [team for _, team in sorted(zip(pnt_cnts, team_list), reverse=True)]
+# sorted_teams_1 = sorted_teams_1[:1000]
 
+# print(new_battle_all(sorted_teams_1))
 
-# print(team_list[best_team_idx])
-
-# pnt_cnts.sort(reverse = True)
-# print(pnt_cnts[:50])
-
-print(new_battle_all(team_list))
+# [[4, 3, 8, 12, 13, 25, 6, 5, 13, 11]] This team wins the new battle if you take the top 1000 from the first run
+#__________________________________________________________________________
